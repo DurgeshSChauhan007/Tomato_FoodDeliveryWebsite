@@ -19,14 +19,20 @@ const StoreContextProvider = (props) => {
             setCartItems((prev)=>({...prev,[itemId]:prev[itemId]+1}))
         }
         if (token) {
-            await axios.post(url+"/api/cart/add", {itemId}, {headers:{token}})
+            await axios.post(url+"/api/cart/add", {itemId}, {headers: {
+  Authorization: `Bearer ${token}`
+}
+})
         }
     }
 
     const removeFromCart = async (itemId) => {
         setCartItems((prev)=>({...prev,[itemId]:prev[itemId]-1}))
         if (token) {
-            await axios.post(url+"/api/cart/remove", {itemId}, {headers:{token}})
+            await axios.post(url+"/api/cart/remove", {itemId}, {headers: {
+  Authorization: `Bearer ${token}`
+}
+})
         }
     }
 
@@ -47,7 +53,10 @@ const StoreContextProvider = (props) => {
     }
 
     const loadCartData = async (token) => {
-        const response = await axios.post(url+"/api/cart/get", {}, {headers:{token}});
+        const response = await axios.post(url+"/api/cart/get", {}, {headers: {
+  Authorization: `Bearer ${token}`
+}
+});
         setCartItems(response.data.cartData)
 
     }

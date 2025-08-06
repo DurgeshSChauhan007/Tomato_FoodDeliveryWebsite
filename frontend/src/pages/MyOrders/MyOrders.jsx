@@ -14,7 +14,9 @@ const MyOrders = () => {
       const response = await axios.post(
         `${url}/api/order/userorders`, 
         {},
-        { headers: { token } } // Authorization header
+        {headers: {
+        Authorization: `Bearer ${token}`
+      }} // Authorization header
       );
       setData(response.data.data); // Store fetched orders
     } catch (error) {

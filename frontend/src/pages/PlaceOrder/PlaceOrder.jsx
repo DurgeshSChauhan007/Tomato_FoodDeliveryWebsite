@@ -8,6 +8,8 @@ const PlaceOrder = () => {
 
     const {getTotalCartAmount, token, food_list, cartItems, url } = useContext(StoreContext);
 
+    const [method, setMethod] = useState('');
+
     const [data, setData] = useState({
       firstName:"",
       lastName:"",
@@ -43,14 +45,51 @@ const PlaceOrder = () => {
         amount:getTotalCartAmount()+2,
       }
 
-      let response = await axios.post(url+"/api/order/place", orderData, {headers:{token}})
-      if (response.data.success) {
-        const {session_url} = response.data;
-        window.location.replace(session_url);
+      switch(method) {
+          case 'stripe':
+            try {
+              let response = await axios.post(url + "/api/order/place", orderData, {
+                headers: {
+                  Authorization: `Bearer ${token}`
+                }
+              });
+
+              if (response.data.success) {
+                const { session_url } = response.data;
+                window.location.replace(session_url);
+              } else {
+                alert("Stripe Payment Error");
+              }
+            } catch (error) {
+              console.error("Stripe Error:", error);
+              alert("Stripe Error");
+            }
+            break;
+
+          case 'cod':
+  try {
+    const response = await axios.post(`${url}/api/order/cod`, orderData, {
+      headers: {
+        Authorization: `Bearer ${token}`
       }
-      else{
-        alert("Error");
-      }
+    });
+
+    if (response.data.success) {
+      alert("Order placed successfully with Cash on Delivery");
+      navigate("/myorders"); 
+    } else {
+      alert("COD order failed: " + response.data.message);
+    }
+  } catch (error) {
+    console.error("COD Error:", error);
+    alert("COD order error: " + error.response?.data?.message || error.message);
+  }
+  break;
+
+
+          default:
+            alert("Please select a payment method");
+        }  
     }
 
     const navigate = useNavigate();
@@ -102,7 +141,18 @@ const PlaceOrder = () => {
               <p>${getTotalCartAmount()===0?0:getTotalCartAmount()+2}</p>
             </div>
           </div>
-          <button type="submit">PROCEED TO PAYMENT</button>
+          <div className="payment-methods">
+            <p>Payment Method</p>
+            <label>
+              <input type="radio" value="stripe" name="method" onChange={(e) => setMethod(e.target.value)} />
+              Stripe
+            </label>
+            <label>
+              <input type="radio" value="cod" name="method" onChange={(e) => setMethod(e.target.value)} />
+              Cash on Delivery
+            </label>
+          </div>
+          <button type="submit" disabled={!method}>PROCEED TO PAYMENT</button>
         </div>
 
       </div>

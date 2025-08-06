@@ -57,6 +57,31 @@ const placeOrder = async (req, res) => {
 
 }
 
+const codOrder = async (req, res) => {
+  try {
+    if (!req.body.userId) {
+      return res.status(401).json({ success: false, message: "Unauthorized user" });
+    }
+
+    const newOrder = new orderModel({
+      userId: req.body.userId,
+      items: req.body.items,
+      amount: req.body.amount,
+      address: req.body.address 
+    });
+
+    await newOrder.save();
+    await userModel.findByIdAndUpdate(req.body.userId, { cartData: {} });
+
+    res.status(201).json({ success: true, message: "Cash on delivery order placed" });
+  } catch (error) {
+    console.error("COD Error:", error);
+    res.status(500).json({ success: false, message: "Internal Server Error" });
+  }
+};
+
+
+
 const verifyOrder = async (req, res) => {
     const {orderId, success} = req.body;
     try {
@@ -115,4 +140,4 @@ const updateStatus = async (req, res) => {
 };
 
 
-export { placeOrder, verifyOrder, userOrder, listOrders, updateStatus };
+export { placeOrder, verifyOrder, userOrder, listOrders, updateStatus, codOrder };

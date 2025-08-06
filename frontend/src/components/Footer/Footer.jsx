@@ -8,7 +8,7 @@ const Footer = () => {
         <div className="footer-content">
             <div className="footer-content-left">
                 <img src={assets.logo} alt="" />
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Atque repellendus ullam omnis illum inventore consequatur eius minima officia, veniam repudiandae deleniti similique explicabo, id error! Recusandae quod numquam ullam incidunt!</p>
+                <p>Hungry? Order your favorites in seconds! QuickBite delivers fresh meals, fast service, and flavorful moments—straight from local kitchens to your door. <br /><br /> Craving something delicious? We’ve got you covered — fresh food, fast delivery, and happy bellies. 🍔🍕🍜</p>
                 <div className="footer-social-icons">
                     <img src={assets.facebook_icon} alt="" />
                     <img src={assets.twitter_icon} alt="" />
@@ -27,13 +27,13 @@ const Footer = () => {
             <div className="footer-content-right">
                 <h2>GET IN TOUCH</h2>
                 <ul>
-                    <li>+91-987897230</li>
+                    <li>+91-9555502616</li>
                     <li>contact@tomato.com</li>
                 </ul>
             </div>
         </div>
         <hr />
-        <p className="footer-copyright">Copyright 2024 © Tomato.com - All Right Reserved</p>
+        <p className="footer-copyright">Copyright 2025 © Tomato.com - All Right Reserved</p>
     </div>
   )
 }
