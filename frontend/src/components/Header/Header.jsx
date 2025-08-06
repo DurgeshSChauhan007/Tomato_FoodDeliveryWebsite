@@ -1,6 +1,5 @@
 import React from 'react';
 import './Header.css';
-import { assets } from '../../assets/assets';
 
 
 const Header = () => {
@@ -11,15 +10,13 @@ const Header = () => {
     }
   };
 
-
-
   return (
     <div
       className='header'
       style={{
         height: '34vw',
         margin: '30px auto',
-        background: `url(${assets.header_img}) no-repeat`,
+        background: "url('/header_img.png') no-repeat",
         backgroundSize: 'cover', 
         position: 'relative',
       }}
