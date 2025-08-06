@@ -44,17 +44,16 @@
   margin-top: 30px;
   padding: 20px;
   width: 300px;
-  border: 3px solid tomato;
+  border: 2px solid #333;
   border-radius: 8px;
-  background-color: #fff5f0;
   font-family: Arial, sans-serif;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .payment-methods p {
   font-size: 18px;
   font-weight: bold;
-  color: tomato;
+  color: #333;
   margin-bottom: 10px;
   text-decoration: underline ;
 }
@@ -62,22 +61,23 @@
 .payment-methods label {
   display: flex;
   align-items: center;
-  font-size: 15px;
+  font-size: 16px;
   color: #333;
   margin-bottom: 10px;
   cursor: pointer;
   padding: 6px;
   border-radius: 5px;
-  color: tomato;
+  color: #333;
   transition: background-color 0.2s ease;
 }
 
 .payment-methods label:hover {
-  background-color: #ffe5dc;
+  background-color: #eef7f7;
 }
 
 .payment-methods input[type="radio"] {
-  accent-color: red;
+  accent-color: black;
+  width: 20px;
   margin-right: 10px;
   cursor: pointer;
 }

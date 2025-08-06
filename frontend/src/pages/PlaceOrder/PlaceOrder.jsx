@@ -150,7 +150,7 @@ const PlaceOrder = () => {
             </label>
             <label>
               <input type="radio" value="cod" name="method" onChange={(e) => setMethod(e.target.value)} />
-              Cash on Delivery
+              COD (Cash on Delivery)
             </label>
           </div>
           <button type="submit" disabled={!method}>PROCEED TO PAYMENT</button>
