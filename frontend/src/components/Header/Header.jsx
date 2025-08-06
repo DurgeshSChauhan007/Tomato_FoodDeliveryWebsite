@@ -1,5 +1,7 @@
 import React from 'react';
 import './Header.css';
+import { assets } from '../../assets/assets';
+
 
 const Header = () => {
   const scrollToMenu = () => {
@@ -9,10 +11,19 @@ const Header = () => {
     }
   };
 
-  
+
 
   return (
-    <div className='header'>
+    <div
+      className='header'
+      style={{
+        height: '34vw',
+        margin: '30px auto',
+        background: `url(${assets.header_img}) no-repeat`,
+        // backgroundSize: 'cover', 
+        position: 'relative',
+      }}
+    >
       <div className="header-contents">
         <h2>Order your favourite food here</h2>
         <p>
