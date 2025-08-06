@@ -20,7 +20,7 @@ const Header = () => {
         height: '34vw',
         margin: '30px auto',
         background: `url(${assets.header_img}) no-repeat`,
-        // backgroundSize: 'cover', 
+        backgroundSize: 'cover', 
         position: 'relative',
       }}
     >
