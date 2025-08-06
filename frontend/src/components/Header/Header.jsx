@@ -12,15 +12,16 @@ const Header = () => {
 
   return (
     <div
-      className='header'
-      style={{
-        height: '34vw',
-        margin: '30px auto',
-        background: "url('/header_img.png') no-repeat",
-        backgroundSize: 'cover', 
-        position: 'relative',
-      }}
-    >
+  className="header"
+  style={{
+    height: '34vw',
+    margin: '30px auto',
+    background: "url('/header_img.png') no-repeat",
+    backgroundSize: 'cover',
+    position: 'relative',
+  }}
+>
+
       <div className="header-contents">
         <h2>Order your favourite food here</h2>
         <p>
