@@ -1,9 +1,9 @@
-/* .header{
+.header{
     height: 34vw;
     margin: 30px auto;
     background: url('./header_img.png') no-repeat;
     position: relative;
-} */
+} 
 
 .header-contents{
     position: absolute;
@@ -55,3 +55,4 @@
         padding: 2vw 4vw;
     }
 }
+
