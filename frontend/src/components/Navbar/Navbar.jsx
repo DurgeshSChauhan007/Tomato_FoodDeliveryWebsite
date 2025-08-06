@@ -6,9 +6,6 @@ import { StoreContext } from '../../context/StoreContext';
 import { toast } from 'react-toastify';
 import { useLocation } from 'react-router-dom';
 
-
-
-
 const Navbar = ({setShowLogin}) => {
     const [menu, setMenu] = useState("menu");
     const [searchQuery, setSearchQuery] = useState("");
@@ -16,7 +13,7 @@ const Navbar = ({setShowLogin}) => {
 
 
 
-    const{getTotalCartAmount, token, setToken, food_list} =useContext(StoreContext);
+    const{getTotalCartAmount, token, setToken, food_list, url} =useContext(StoreContext);
 
     const navigate = useNavigate();
 
@@ -86,7 +83,7 @@ const Navbar = ({setShowLogin}) => {
                     className="search-item" 
                     onClick={() => setShowSearch(false) && setSearchQuery("")}
                     >
-                <img src={`http://localhost:4000/images/${food.image}`} alt={food.name} />
+                <img src={`${url}/images/${food.image}`} alt={food.name} />
                 <p>{food.name}</p>
                 </Link>
             ))
@@ -95,10 +92,6 @@ const Navbar = ({setShowLogin}) => {
             )}
         </div>
         )}
-
-
-
-
 
         <div className="navbar-search-icon">
             <Link to='/cart'><img src={assets.basket_icon} alt="" /></Link>

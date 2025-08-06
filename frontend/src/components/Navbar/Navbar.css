@@ -153,6 +153,10 @@
   z-index: 1000;
 }
 
+.search-item:hover {
+    background-color: rgb(240, 166, 117);
+}
+
 .search-item {
   padding: 10px;
   display: flex;

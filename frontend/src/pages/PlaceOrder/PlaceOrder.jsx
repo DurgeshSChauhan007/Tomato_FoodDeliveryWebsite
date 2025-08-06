@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 
 const PlaceOrder = () => {
 
-    const {getTotalCartAmount, token, food_list, cartItems, url } = useContext(StoreContext);
+    const {getTotalCartAmount, token, food_list, cartItems, setCartItems, url } = useContext(StoreContext);
 
     const [method, setMethod] = useState('');
 
@@ -76,6 +76,7 @@ const PlaceOrder = () => {
 
     if (response.data.success) {
       alert("Order placed successfully with Cash on Delivery");
+      setCartItems({});
       navigate("/myorders"); 
     } else {
       alert("COD order failed: " + response.data.message);

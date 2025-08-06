@@ -10,6 +10,7 @@ const FoodDetails = () => {
     cartItems,
     addToCart,
     removeFromCart,
+    url
   } = useContext(StoreContext);
 
   const foodItem = food_list.find(food => food._id === id);
@@ -21,7 +22,7 @@ const FoodDetails = () => {
   return (
     <div className="food-details">
       <h1>{foodItem.name}</h1>
-      <img src={`http://localhost:4000/images/${foodItem.image}`} alt={foodItem.name} />
+      <img src={`${url}/images/${foodItem.image}`} alt={foodItem.name} />
       <p>Price: ₹{foodItem.price}</p>
       <p>Description: {foodItem.description}</p>
 

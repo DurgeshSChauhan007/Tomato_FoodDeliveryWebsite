@@ -12,8 +12,6 @@ import { ToastContainer } from 'react-toastify'
 import FoodDetails from './pages/FoodDetails/FoodDetails';
 
 
-
-
 const App = () => {
 
   const [showLogin, setShowLogin] = useState(false);
