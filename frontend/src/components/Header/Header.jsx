@@ -16,7 +16,7 @@ const Header = () => {
   style={{
     height: '34vw',
     margin: '30px auto',
-    background: "url('header_img.png') center center",
+    background: "url('/header_img.png') no-repeat",
     backgroundSize: 'cover',
     position: 'relative',
   }}
