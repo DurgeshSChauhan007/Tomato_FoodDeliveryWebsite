@@ -2,9 +2,10 @@ import React, { useContext } from 'react'
 import './Cart.css'
 import { StoreContext } from '../../context/StoreContext'
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 const Cart = () => {
-  const {cartItems, food_list, removeFromCart, getTotalCartAmount, url } = useContext(StoreContext);
+  const {cartItems, food_list, removeFromCart, getTotalCartAmount, url, token } = useContext(StoreContext);
 
   const navigate = useNavigate();
   return (
@@ -58,7 +59,14 @@ const Cart = () => {
               <p>${getTotalCartAmount()===0?0:getTotalCartAmount()+2}</p>
             </div>
           </div>
-          <button onClick={()=>navigate('/order')}>PROCEED TO CHECKOUT</button>
+          <button onClick={() => {
+            if (!token) {
+              toast.error("You're not logged in.");
+            } else {
+              navigate('/order');
+            }
+          }}>PROCEED TO CHECKOUT</button>
+
         </div>
         <div className="cart-promocode">
           <div>
