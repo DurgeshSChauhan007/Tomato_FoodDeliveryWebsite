@@ -18,7 +18,6 @@ const placeOrder = async (req, res) => {
         })
         
         await newOrder.save();
-        await userModel.findByIdAndUpdate(req.body.userId, {cartData:{}});
 
         const line_items = req.body.items.map((item) => ({
             price_data: {
@@ -87,6 +86,7 @@ const verifyOrder = async (req, res) => {
     try {
         if (success=="true") {
             await orderModel.findByIdAndUpdate(orderId, {payment:true});
+            await userModel.findByIdAndUpdate(req.body.userId, {cartData:{}});
             res.json({success:true, message:"Paid"})
         }else {
             await orderModel.findByIdAndDelete(orderId);
