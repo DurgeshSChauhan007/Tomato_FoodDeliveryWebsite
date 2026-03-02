@@ -16,7 +16,7 @@ This project is a food delivery website that allows users to easily browse and o
 - Frontend: HTML, CSS, JavaScript, React
 - Backend: Node.js, Express.js
 - Database: MongoDB
-- Deployment: Heroku / AWS
+- Deployment: Versel / render
 
 ## Installation Instructions
 1. Clone the repository: `git clone https://github.com/DurgeshSChauhan007/Tomato_FoodDeliveryWebsite.git`
